@@ -3,6 +3,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { User } from '../user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,15 +26,19 @@ export class UserService {
     }
   }
 
-  async login ({email,password}:any) {
+  
+
+  async login({ email, password }: any) {
     try {
-      console.log("Intentando crear usuario",email);
-      const user = await signInWithEmailAndPassword(
-        this.auth,
-        email,
-        password
-      );
-      return user;
+      console.log("Intentando iniciar sesión", email);
+  
+      if (email === 'admin@admin.admin' && password === 'admin') {
+        const adminUser = await signInWithEmailAndPassword(this.auth, email, password);
+        return adminUser;
+      } else {
+        const user = await signInWithEmailAndPassword(this.auth, email, password);
+        return user;
+      }
     } catch (e) {
       console.log(e);
       return null;
@@ -48,7 +53,5 @@ export class UserService {
     const userRef = collection(this.firestore, 'usuarios');
     return addDoc(userRef, user);
   }
-
-
 
 }

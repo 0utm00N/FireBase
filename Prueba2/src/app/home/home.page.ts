@@ -18,7 +18,7 @@ export class HomePage {
 
   datos !: FormGroup
 
-  forma() {
+  ngOnInit() {
     this.datos = this.formBuilder.group({
       name: [''],
       descripcion: [''],

@@ -5,28 +5,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="credentials">
+  <form [formGroup]="forma">
     <ion-item class="ion-margin-bottom">
-      <ion-input type="email" placeHolder="Email" formControlName="email"></ion-input>
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
     </ion-item>
 
     <ion-item class="ion-margin-bottom">
-      <ion-input type="text" placeHolder="nombre" formControlName="name"></ion-input>
+      <ion-input type="text" placeholder="nombre" formControlName="name"></ion-input>
     </ion-item>
 
     <ion-item class="ion-margin-bottom">
-      <ion-input type="text" placeHolder="Password(por ahora se ve)" formControlName="password"></ion-input>
+      <ion-input type="text" placeholder="Password" formControlName="password"></ion-input>
     </ion-item>
 
     <ion-item class="ion-margin-bottom">
-      <ion-input type="number" placeHolder="edad" formControlName="edad"></ion-input>
+      <ion-input type="number" placeholder="edad" formControlName="edad"></ion-input>
     </ion-item>
 
     <ion-item class="ion-margin-bottom">
-      <ion-input type="text" placeHolder="telefono" formControlName="telefono"></ion-input>
+      <ion-input type="tel" placeholder="telefono" formControlName="telefono"></ion-input>
     </ion-item>
 
-    <ion-button type="button" (click)="register()">Registarse</ion-button>
+    <ion-button type="button" (click)="register()" [disabled]="isButtonDisabled">Registarse</ion-button>
   </form>
 
 </ion-content>

@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 export class LoginPage implements OnInit {
 
   credentials !: FormGroup;
+  isButtonDisabled: boolean = true;
 
   constructor(
     private userService : UserService,
@@ -31,8 +32,18 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     this.credentials = this.formBuilder.group({
       email: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.minLength(8)]],
+      password: ['',[Validators.required, Validators.minLength(6)]],
     })
+
+    this.credentials.valueChanges.subscribe(() => {
+      this.isButtonDisabled = this.credentials.invalid; // Deshabilita si el formulario es inválido
+      if (
+        this.credentials.get('email')?.value === 'admin@admin.admin' &&
+        this.credentials.get('password')?.value === 'admin'
+      ) {
+        this.isButtonDisabled = false; // Habilita si las credenciales son 'admin'
+      }
+    });
   }
 
   async login () {
@@ -48,15 +59,10 @@ export class LoginPage implements OnInit {
     }
   }
 
-  goToHome (){
-    this.router.navigateByUrl('home');
-  }
-
   goToRegister(){
     this.router.navigateByUrl('register')
   }
   
-
 
 
 }
