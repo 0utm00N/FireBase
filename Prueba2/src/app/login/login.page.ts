@@ -46,18 +46,33 @@ export class LoginPage implements OnInit {
     });
   }
 
-  async login () {
-    console.log(this.credentials.value);
-
-    const user = await this.userService.login(this.credentials.value);
-
-    if (user) {
-      console.log("OK");
-      this.router.navigateByUrl('home');
+  async login() {
+    const { email, password } = this.credentials.value;
+  
+    if (email === 'admin@admin.admin' && password === 'admin') {
+      // Las credenciales son "admin", no necesitas conectar a Firebase
+      // Aquí puedes configurar la lógica para permitir el acceso sin autenticación real
+      console.log('OK');
+      this.router.navigateByUrl('/home');
     } else {
-      console.log("NOT OK")
+      // Llamas a la función de inicio de sesión real
+      try {
+        const user = await this.userService.login({ email, password });
+        if (user) {
+          console.log('OK');
+          this.router.navigateByUrl('/home');
+        } else {
+          console.log('NOT OK');
+        }
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
+
+  
+
+  
 
   goToRegister(){
     this.router.navigateByUrl('register')
