@@ -1,0 +1,28 @@
+// detail.page.scss
+
+ion-content {
+    --ion-background-color: #474343;
+  }
+  
+  ion-toolbar {
+    --background: #474343; // Color del fondo del header
+    --color: #ffffff; // Color del texto en el header
+  }
+    
+  ion-card {
+    --background: #2e2c2c; // Color de fondo de las cards
+    --border-color: #2e2c2c; // Color del borde de las cards
+  }
+  
+  ion-card-header {
+    --color: #ffffff; // Color del texto en el encabezado de la card
+  }
+  
+  .item-title {
+    font-size: 1.8rem; // Tamaño grande para el título del item en la card
+  }
+  
+  .no-border {
+    --border-width: 0; // Sin bordes en el botón de home
+  }
+  

@@ -1,0 +1,43 @@
+// items.page.scss
+
+ion-content {
+    --ion-background-color: #474343;
+  }
+  
+  ion-toolbar {
+    --background: #474343; // Color del fondo del header
+    --color: #ffffff; // Color del texto en el header
+  }
+  
+  ion-title {
+    font-size: 1.2rem;
+  }
+  
+  ion-card {
+    --background: #2e2c2c; // Color de fondo de las cards
+    --border-color: #2e2c2c; // Color del borde de las cards
+  }
+  
+  ion-item {
+    --background: #2e2c2c;
+    --border-color: #2e2c2c;
+  }
+  
+  ion-button {
+    --color: #ffffff;
+    --border-radius: 0; // Sin bordes redondeados
+    --box-shadow: none;
+  }
+  
+  .no-border {
+    --border-width: 0; // Sin bordes en el botón de home
+  }
+  
+  // Añadimos el color "crema"
+  ion-button[color="crema"] {
+    --background: #f8e9c5;
+  }
+  
+  .center-title {
+    text-align: center; // Centro el texto del h1
+  }

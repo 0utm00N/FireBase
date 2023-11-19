@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword,  signOut } from '@angular/fire/auth';
+import { Firestore, collection, addDoc, doc, DocumentData, DocumentReference, getDoc, collectionData, updateDoc } from '@angular/fire/firestore';
 import { User } from '../user';
-
+import { Observable } from 'rxjs';
+import { query, where, CollectionReference, Query } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private auth : Auth, private firestore : Firestore) { }
+
+  constructor(private auth: Auth, private firestore: Firestore) {
+  }
+
+  getUser(email: string): Observable<User[]> {
+    const q: Query<User> = query(collection(this.firestore, 'usuarios') as CollectionReference<User>, where('email', '==', email));
+    return collectionData(q, { idField: 'id' }) as Observable<User[]>;
+  }
 
   async register ({email,password}:any) {
     try {
@@ -26,7 +34,6 @@ export class UserService {
     }
   }
 
-  
 
   async login({ email, password }: any) {
     try {
@@ -45,6 +52,7 @@ export class UserService {
     }
   }
 
+
   logout () {
     return signOut(this.auth);
   }
@@ -54,4 +62,19 @@ export class UserService {
     return addDoc(userRef, user);
   }
 
+  editUser(user: User) {
+    const userDocRef = doc(this.firestore, `usuarios/${user.email}`);
+
+    const updatedData = {
+      name: user.name,
+      telefono: user.telefono,
+      edad: user.edad
+    };
+    return updateDoc(userDocRef, updatedData);
+  } 
+
+
+
 }
+
+

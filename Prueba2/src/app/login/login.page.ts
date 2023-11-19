@@ -50,12 +50,9 @@ export class LoginPage implements OnInit {
     const { email, password } = this.credentials.value;
   
     if (email === 'admin@admin.admin' && password === 'admin') {
-      // Las credenciales son "admin", no necesitas conectar a Firebase
-      // Aquí puedes configurar la lógica para permitir el acceso sin autenticación real
       console.log('OK');
       this.router.navigateByUrl('/home');
     } else {
-      // Llamas a la función de inicio de sesión real
       try {
         const user = await this.userService.login({ email, password });
         if (user) {
@@ -69,10 +66,6 @@ export class LoginPage implements OnInit {
       }
     }
   }
-
-  
-
-  
 
   goToRegister(){
     this.router.navigateByUrl('register')

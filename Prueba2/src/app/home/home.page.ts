@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
-import { ItemsService } from '../services/items.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
@@ -11,29 +9,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class HomePage {
 
-  constructor(private userService: UserService, 
-    private router : Router, 
-    private itemService: ItemsService,
-    private formBuilder: FormBuilder) {}
+  constructor(private router : Router) {}
 
-  datos !: FormGroup
+ goToPerfil(){
+  this.router.navigateByUrl('perfil/:id');
+ }
 
-  ngOnInit() {
-    this.datos = this.formBuilder.group({
-      name: [''],
-      descripcion: [''],
-      precio: ['']
-    })
-  }
+ goToItems(){
+  this.router.navigateByUrl('items');
+ }
 
-  logOut(){
-    this.userService.logout()
-    this.router.navigateByUrl('login')
-  }
-
-  addItem(){
-    this.itemService.addItem(this.datos.value)
-    console.log(this.datos.value)
-  }
+ 
 
 }

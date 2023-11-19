@@ -1,32 +1,35 @@
+<!-- register.page.html -->
+
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="custom-background">
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="forma">
-    <ion-item class="ion-margin-bottom">
-      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
-    </ion-item>
+  <ion-card class="ion-padding custom-card">
+    <form [formGroup]="forma">
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
 
-    <ion-item class="ion-margin-bottom">
-      <ion-input type="text" placeholder="nombre" formControlName="name"></ion-input>
-    </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
+      </ion-item>
 
-    <ion-item class="ion-margin-bottom">
-      <ion-input type="text" placeholder="Password" formControlName="password"></ion-input>
-    </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+      </ion-item>
 
-    <ion-item class="ion-margin-bottom">
-      <ion-input type="number" placeholder="edad" formControlName="edad"></ion-input>
-    </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="number" placeholder="Edad" formControlName="edad"></ion-input>
+      </ion-item>
 
-    <ion-item class="ion-margin-bottom">
-      <ion-input type="tel" placeholder="telefono" formControlName="telefono"></ion-input>
-    </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="tel" placeholder="Teléfono" formControlName="telefono"></ion-input>
+      </ion-item>
 
-    <ion-button type="button" (click)="register()" [disabled]="isButtonDisabled">Registarse</ion-button>
-  </form>
-
+      <ion-button type="button" (click)="register()" [disabled]="isButtonDisabled">Registrarse</ion-button>
+    </form>
+  </ion-card>
 </ion-content>

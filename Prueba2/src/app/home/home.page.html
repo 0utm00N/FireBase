@@ -1,28 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- home.page.html -->
 
-<ion-content [fullscreen]="true">
-  <div id="container">
-    <form [formGroup]="datos">
-      <ion-item>
-        <ion-input type="text" placeholder="nombre" formControlName="name"></ion-input>
-      </ion-item>
+<ion-content [fullscreen]="true" class="custom-background">
+  <ion-card id="container">
+    <ion-card-header>
+      <ion-card-title>
+        Home
+      </ion-card-title>
+    </ion-card-header>
 
-      <ion-item>
-        <ion-input type="text" placeholder="Descripcion" formControlName="descripcion"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input type="number" placeholder="Precio" formControlName="precio"></ion-input>
-      </ion-item>
-
-      <ion-button type="button" (click)="addItem()" >Agregar</ion-button>
-    </form>
-    <ion-button type="button" (click)="logOut()"  >cerrar sesion</ion-button>
-  </div>
+    <ion-card-content>
+      <div class="botones-container">
+        <ion-button type="button" (click)="goToPerfil()">Perfil</ion-button>
+        <ion-button type="button" (click)="goToItems()">Items</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

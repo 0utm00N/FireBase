@@ -1,0 +1,34 @@
+// register.page.scss
+
+ion-content {
+    --ion-background-color: #474343;
+  }
+  
+  ion-toolbar {
+    --background: #474343; // Color del fondo del header
+    --color: #ffffff; // Color del texto en el header
+  }
+  
+  ion-card {
+    margin-top: 16px; // Espaciado entre la card y la parte superior
+    --background: #2e2c2c; // Color de fondo de la card
+    --border-color: #2e2c2c; // Color del borde de la card
+  }
+  
+  ion-item {
+    --background: #2e2c2c; // Color de fondo de los elementos del formulario
+    --border-color: #2e2c2c; // Color del borde de los elementos del formulario
+  }
+  
+  ion-button {
+    --color: #080808; // Color del texto en el botón
+    --border-radius: 0; // Sin bordes redondeados en el botón
+    --box-shadow: none; // Sin sombra en el botón
+    --background: #d8d8d8;
+  }
+  
+  .custom-card {
+    --ion-padding-start: 16px; // Espaciado interno a la izquierda de la card
+    --ion-padding-end: 16px; // Espaciado interno a la derecha de la card
+  }
+  

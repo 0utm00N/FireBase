@@ -1,0 +1,70 @@
+<!-- items.page.html -->
+
+<ion-header>
+  <ion-toolbar class="custom-background">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home" class="no-border">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      items
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="custom-background ion-padding">
+
+  <!-- Formulario en una card -->
+  <ion-card>
+    <form [formGroup]="datos" (ngSubmit)="addItem()" class="ion-padding">
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="name" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Descripción</ion-label>
+        <ion-input formControlName="descripcion" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Precio</ion-label>
+        <ion-input formControlName="precio" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Categoría</ion-label>
+        <ion-select formControlName="categoria" required>
+          <!-- Opciones de categoría -->
+          <ion-select-option value="Ability power">Ability power</ion-select-option>
+          <ion-select-option value="Attack damage">Attack damage</ion-select-option>
+          <!-- Agrega opciones adicionales según tus categorías -->
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="full" type="submit" color="crema">Agregar Elemento</ion-button>
+    </form>
+  </ion-card>
+
+  <h1 class="center-title">Lista</h1>
+
+  <!-- Lista de elementos en otra card -->
+  <ion-card class="ion-margin-top">
+    <ion-select [(ngModel)]="categoriaSeleccionada" (ionChange)="filtrarPorCategoria()">
+      <P>Categoría</P>
+      <ion-select-option value="Ability power">Ability power</ion-select-option>
+      <ion-select-option value="Attack damage">Attack damage</ion-select-option>
+    </ion-select>
+
+    <ion-list>
+      <ion-item *ngFor="let item of item">
+        <a (click)="verDetalle(item.id)"> {{ item.name }} -  {{ item.precio }} $</a>
+        <ion-button (click)="updateItemForm(item)" color="crema">Editar</ion-button>
+        <ion-button (click)="deleteItem(item)" color="crema">Eliminar</ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="resetFiltro()" color="crema">Mostrar Todos</ion-button>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,45 @@
+// login.page.scss
+
+ion-content {
+    --ion-background-color: #474343;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; // Establece la altura al 100% de la ventana
+  }
+  
+  ion-card {
+    max-width: 400px;
+    width: 100%; // Ajusta el ancho al 100%
+    text-align: center; // Centra el contenido horizontalmente
+    margin: auto; // Centra el card horizontalmente
+  }
+  
+  ion-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .botones-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  ion-button {
+    flex: 1;
+    margin-right: 8px;
+    --background: #f8e9c5;
+    --color: #333333;
+    --border-radius: 6px;
+    --box-shadow: none;
+    max-width: 48%;
+    
+    &[disabled] {
+      --background: #d8d8d8;
+      cursor: not-allowed;
+    }
+}
+  

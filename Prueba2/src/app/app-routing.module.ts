@@ -19,6 +19,19 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'perfil/:id',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule)
+  },
+  {
+    path: 'elemento/detail/:id',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+  },
+
 
 
 

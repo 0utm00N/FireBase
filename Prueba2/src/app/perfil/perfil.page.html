@@ -1,0 +1,45 @@
+<!-- perfil.page.html -->
+
+<ion-header>
+  <ion-toolbar class="custom-background">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home" class="no-border">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="custom-background ion-padding">
+
+  <ion-card>
+    <ion-card-content *ngIf="user">
+      <h2>{{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <p>Edad: {{ user.edad }}</p>
+      <p>Teléfono: {{ user.telefono }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <form [formGroup]="userForm">
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
+      </ion-item>
+      
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="number" placeholder="Edad" formControlName="edad"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-input type="tel" placeholder="Teléfono" formControlName="telefono"></ion-input>
+      </ion-item>
+    
+      <ion-button expand="full" color="crema" class="center-button" (click)="updateUser()">
+        Actualizar Datos
+      </ion-button>
+    </form>
+  </ion-card>
+
+</ion-content>
